@@ -1,0 +1,514 @@
+﻿/*body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    background-image: url('/images/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+    width: 500px;
+    margin: 0 auto;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-box .tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+    .login-box .tab button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: inherit;
+        color: black;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        margin: 0 10px;
+        transition: color 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+        .login-box .tab button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-box .tab button.active {
+            color: #4caf50;
+        }
+
+        .login-box .tab button:hover {
+            color: grey;
+        }
+
+    .login-box .tab::before,
+    .login-box .tab::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+        margin: auto 10px;
+    }
+
+.login-box .form-group {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .login-box .form-group.active {
+        opacity: 1;
+        display: block;
+        transition-delay: 0.3s;
+    }
+
+.login-box input[type="text"],
+.login-box input[type="password"],
+.login-box input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-box .checkbox {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.login-box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 3s;
+}
+
+    .login-box input[type="submit"]:hover {
+        background-color: grey;
+    }
+
+.red {
+    color: red;
+    animation: vibrate 2s linear;
+    animation-iteration-count: 2;
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-2px);
+    }
+
+    20% {
+        transform: translateX(2px);
+    }
+
+    30% {
+        transform: translateX(-2px);
+    }
+
+    40% {
+        transform: translateX(2px);
+    }
+
+    50% {
+        transform: translateX(-2px);
+    }
+
+    60% {
+        transform: translateX(2px);
+    }
+
+    70% {
+        transform: translateX(-2px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+
+    90% {
+        transform: translateX(-2px);
+    }
+
+    containerLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-box {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        background-image: url('/images/background2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        opacity: 0.8;
+    }
+
+    .containerLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-box {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .login-box h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-box .tab {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .login-box .tab button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: inherit;
+        color: black;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        margin: 0 10px;
+        transition: color 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .login-box .tab button span {
+        position: relative;
+        z-index: 2;
+    }
+
+    .login-box .tab button.active {
+        color: #4caf50;
+    }
+
+    .login-box .tab button:hover {
+        color: grey;
+    }
+
+    .login-box .tab::before, .login-box .tab::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+        margin: auto 10px;
+    }
+
+    .login-box .form-group {
+        opacity: 0;
+        display: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .login-box .form-group.active {
+        opacity: 1;
+        display: block;
+        transition-delay: 0.3s;
+    }
+
+    .login-box input[type="text"], .login-box input[type="password"], .login-box input[type="email"] {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .login-box .checkbox {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .login-box input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: 0;
+        border-radius: 4px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 3s;
+    }
+
+    .login-box input[type="submit"]:hover {
+        background-color: grey;
+    }
+
+*/
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    background-image: url('/images/background2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    opacity: 0.8;
+}
+
+.containerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) forwards;
+    width: 500px;
+    margin: 0 auto;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-box .tab {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+    .login-box .tab button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: inherit;
+        color: black;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        margin: 0 10px;
+        transition: color 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+        .login-box .tab button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .login-box .tab button.active {
+            color: #4caf50;
+        }
+
+        .login-box .tab button:hover {
+            color: grey;
+        }
+
+    .login-box .tab::before,
+    .login-box .tab::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background-color: #ccc;
+        margin: auto 10px;
+    }
+
+.login-box .form-group {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .login-box .form-group.active {
+        opacity: 1;
+        display: block;
+        transition-delay: 0.3s;
+    }
+
+.login-box input[type="text"],
+.login-box input[type="password"],
+.login-box input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-box .checkbox {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.login-box input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .login-box input[type="submit"]:hover {
+        background-color: grey;
+    }
+
+@keyframes vibrate {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-2px);
+    }
+
+    20% {
+        transform: translateX(2px);
+    }
+
+    30% {
+        transform: translateX(-2px);
+    }
+
+    40% {
+        transform: translateX(2px);
+    }
+
+    50% {
+        transform: translateX(-2px);
+    }
+
+    60% {
+        transform: translateX(2px);
+    }
+
+    70% {
+        transform: translateX(-2px);
+    }
+
+    80% {
+        transform: translateX(2px);
+    }
+
+    90% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.red {
+    color: red;
+    animation: vibrate 2s linear 1, fadeOut 1s ease-in-out 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+

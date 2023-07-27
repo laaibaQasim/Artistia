@@ -1,0 +1,87 @@
+﻿/* Style the navbar links */
+.navbar-nav .nav-link {
+    color: #ecececdc !important;
+    font-size: 16px !important;
+    font-weight: 300;
+    margin-top: 0.25rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    padding-left: 30px !important;
+}
+
+.web-name {
+    color: #ffffff;
+    margin-left: 0.5%;
+    font-family: 'Imbue', serif;
+    font-size: 25px;
+}
+
+.bg-green {
+    background-color: #010e1a;
+}
+
+@keyframes fadeEffect {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade {
+    animation: fadeEffect 3s linear forwards;
+}
+
+.jumbotron {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+    .jumbotron img {
+        width: 100%;
+        height: 60%;
+    }
+
+.btn-custom:hover {
+    background-color: #154066 !important;
+}
+
+.card-body {
+    margin-left: 95px;
+}
+
+.no-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    background-color: #010e1a !important;
+    height: 300px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+.btn-primary {
+    background-color: rgb(247, 247, 247); /* Change button background color */
+    color: rgb(0, 0, 0); /* Change button text color */
+    font-family: Arial, sans-serif; /* Change button font family */
+    font-size: 18px; /* Change button font size */
+}
+
+.news {
+    margin-top: 80px !important;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+}
+
+

@@ -1,0 +1,330 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/logo.jpg">
+    <title>Artistia</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/cart.css" rel="stylesheet">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <!-- NavBar -->
+    <partial name="_navbar" />
+
+
+    <!--background image-->
+    <div class="jumbotron">
+        <img src="/images/background3.jpg" alt="Landscape Image">
+    </div>
+    <h3 class="fade" color="red">@Model</h3>
+    <!--categories-->
+    <div class="jumbotron">
+        <img src="/images/ct.jpg" alt="Landscape Image">
+    </div>
+    
+    <!--images of categories-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1001/300/200.jpg" alt="Beach">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Beach" })'" class="btn btn-secondary btn-block btn-custom">Beach</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1010/300/200.jpg" alt="Books">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Books" })'" class="btn btn-secondary btn-block btn-custom">Books</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1043/300/200" alt="Greenery">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Greenery" })'" class="btn btn-secondary btn-block btn-custom">Greenery</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1053/300/200" alt="Water">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Water" })'" class="btn btn-secondary btn-block btn-custom">Water</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1023/300/200" alt="Forest">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Forest" })'" class="btn btn-secondary btn-block btn-custom">Forest</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1026/300/200" alt="Sunset">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Sunset" })'" class="btn btn-secondary btn-block btn-custom">Sunset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1033/300/200" alt="Railway">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Railway" })'" class="btn btn-secondary btn-block btn-custom">Railway</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://picsum.photos/id/1012/300/200" alt="Animal">
+                    <div class="card-body">
+                        <button type="button" onclick="window.location.href = '@Url.Action("gallery", "gallery", new { category = "Animal" })'" class="btn btn-secondary btn-block btn-custom">Animal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- gallery title -->
+    <br>
+    <div class="jumbotron">
+        <img src="/images/gallery.jpg" alt="Landscape Image">
+    </div>
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
+        <div class="container-fluid">
+
+            <div class="row gy-4 justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-1.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-1.jpg" title="Gallery 1" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-2.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+        
+                            <a href="/images/gallery-2.jpg" title="Gallery 2" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                            @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-3.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            
+                            <a href="/images/gallery-3.jpg" title="Gallery 3" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                            @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-5.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            
+                            <a href="/images/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                            @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-6.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            
+                            <a href="/images/gallery-6.jpg" title="Gallery 6" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                            @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+
+
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-7.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-7.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-8.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-8.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                            @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-9.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-9.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-10.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                           @* <div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-10.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-11.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-11.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-12.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-12.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="gallery-item h-100 position-relative">
+                        <img src="/images/gallery-13.jpg" class="img-fluid" alt="">
+                        <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                            @*<div class="text-center w-100">
+                                <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                            </div>*@
+                            <a href="/images/gallery-15=3.jpg" title="Gallery 15" class="glightbox preview-link">
+                                <i class="bi bi-arrows-angle-expand"></i>
+                            </a>
+                           @* <a href="/gallerysingle/gallerysingle" class="add-to-cart-link"><i class="bi bi-cart-plus"></i></a>*@
+                        </div>
+                    </div>
+                </div><!-- End Gallery Item -->
+            </div>
+    </section>
+    <div class="chat-button" onclick="openWebpage()">
+        <img src="/images/meetme.png" alt="Chat icon" width="60" height="60">
+        <span>Chat with others!</span>
+    </div>
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+    <script src="/js/login .js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- End Gallery Section -->
+
+    <br>
+    <partial name="_footer" />
+
+    <!-- Template Main JS File -->
+
+</body>
+
+</html>

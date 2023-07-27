@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Favicons -->
+    <link href="/images/logo.jpg" rel="icon">
+
+    <title>Artistia Gallery Single</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/css/addTocart.css" rel="stylesheet">
+    <link href="/css/cart.css" rel="stylesheet">
+    <link href="/css/home.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <!-- NavBar -->
+    <partial name="_navbar" />
+    <div><vc:cart-user></vc:cart-user></div>
+
+
+    <main id="main" data-aos="fade" data-aos-delay="1500">
+
+        <!-- ======= End Page Header ======= -->
+        <div class="page-header d-flex align-items-center" style="padding-top: 100px;">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <div class="F" style="color: black;">
+
+                            <h2>Picture description</h2>
+                            <p>This is the detail description of above picture alongwith its photographer and price </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Page Header -->
+        <!-- ======= Gallery Single Section ======= -->
+        <!-- <div class="container"> -->
+        @*  @{
+        //int id = int.Parse(Context.Request.Query["id"]);
+        dynamic image = Admin.GetImageById(2);
+
+
+        }*@
+
+        @{
+            int id;
+            int.TryParse(Context.Request.Query["id"], out id);
+
+            dynamic image = Admin.GetImageById(id);
+
+        }
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="gallery-item" style="padding-left:20px">
+                    <img src="@image.ImgLink" class="img-fluid" alt="" width="2500" height="2500">
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="checkout-wrapper">
+                    <div class="checkout-header">
+                        <h1>Jane Black On Sale</h1>
+                    </div>
+                    <div class="ajeeb">
+
+                        <h6 style="padding-left: 10px;padding-top: 10px;">In stock</h6>
+                        <h4 style="padding-left: 20px;padding-top: 10px;">
+                         @*   <del>Rs 5000</del> <ins style="color: red;">Rs 4000</ins>*@
+                        </h4>
+                  
+
+                        <div class="checkout-form">
+                            <form>
+                                <div class="form-group">
+                                    <label for="size">Size:</label>
+                                    <select id="size" name="size" required>
+                                        <option value="" selected disabled>Size C = 30x20 inches each</option>
+                                        <option value="size-a">Size A</option>
+                                        <option value="size-b">Size B</option>
+                                        <option value="size-c">Size C</option>
+                                        <option value="size-d">Size D</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="size">Style:</label>
+                                    <select id="size" name="size" required>
+                                        <option value="" selected disabled>Framed with borders Arcylic glass</option>
+                                        <option value="size-a">Size A</option>
+                                        <option value="size-b">Size B</option>
+                                        <option value="size-c">Size C</option>
+                                        <option value="size-d">Size D</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="product-container">
+
+                                    <div class="product-info">
+                                        <h2>Jane Image</h2>
+                                        <p>Price: 4000</p>
+                                        <div class="quantity-container">
+                                            <button class="minus-btn">-</button>
+                                            <input type="text" class="quantity-input" value="1">
+                                            <button class="plus-btn">+</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+
+@*                        <button class="add-to-cart-btn" onclick="window.location.href = '@Url.Action("ShippingInfo", "shippinginfo")'">Add to cart</button>*@
+                        @*<button class="add-to-cart-btn" onclick="window.location.href = '@Url.Action("ShippingInfo", "shippinginfo")?imageId=' + '@image.Id'">Add to cart</button>
+*@
+                      @*  <button class="add-to-cart-btn" style="background-color:#010e1a" onclick="window.location.href = '@Url.Action("ShippingInfo", "shippinginfo")?imageId=' + '@image.Id'">Add to cart</button>
+*@
+                       @* <div>
+                            <button class="add-to-cart-btn" style="background-color:#010e1a"  onclick="addToCart('@image.Id')">Add to Cart</button>
+                        </div>*@
+
+                        @{
+                            var page = "Login";
+                            if (@Model != null)
+                            {
+                                <div>
+                                    <button class="add-to-cart-btn" style="background-color:#010e1a" onclick="addToCart('@image.Id')">Add to Cart</button>
+                                </div>
+                                <div>
+                                    <button class="buy-it-now" onclick="addToCart('@image.Id')">Buy it Now</button>
+                                </div>
+                            }
+                            else
+                            {
+                                <button class="add-to-cart-btn" style="background-color:#010e1a" onclick="window.location.href = '@Url.Action("Login", "Login")'">Add to Cart</button>
+                                <div>
+                                    <button class="buy-it-now" onclick="window.location.href = '@Url.Action("Login", "Login")'">Buy it Now</button>
+                                </div>
+                            }
+
+                        }
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <section id="gallery-single" class="gallery-single">
+
+            <div class="row justify-content-between gy-4 mt-4">
+
+                <div class="col-lg-8">
+                    <div class="portfolio-description" style="padding-left:100px;padding-bottom:100px">
+                        <h2>This is detail of above picture</h2>
+                        <p>
+                            Nature is all around us, from the vast oceans to the towering mountains and the dense forests in between.
+                            It is a source of wonder and inspiration, providing us with a sense of peace and tranquility.
+                            The natural world is filled with breathtaking landscapes and magnificent creatures, each one unique and
+                            special in its own way.
+
+                        </p>
+                        <p>
+                            From the delicate flowers in a meadow to the majestic elephants roaming the savannah, every part of nature
+                            has its own beauty and purpose. Despite our technological advancements and busy modern lifestyles, it is
+                            important to remember the importance of nature and to preserve it for future generations to enjoy.
+                        </p>
+                        <div class="about">
+                            <div class="testimonial-item">
+                                <p>
+                                    <i class="bi bi-quote quote-icon-left"></i>
+                                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                                    <i class="bi bi-quote quote-icon-right"></i>
+                                </p>
+                                <div>
+                                    <img src="/images/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                                    <h3 style="color: white;">Laiba Qasim</h3>
+
+                                    <h4>Photographer</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            A photographer is a creative individual who has a passion for capturing and preserving moments in time.
+                            With the power of a camera, a photographer is able to tell a story, convey emotions, and document events.
+                            They use their technical skills and artistic vision to capture images that are visually stunning and evoke
+                            a range of emotions in their audience. Photographers.
+                        </p>
+                        <p>
+                            They often work in different environments and situations, ranging from studios to outdoor locations, and
+                            have to be adaptable and flexible. To be a successful photographer, one needs to have an eye for detail,
+                            good communication skills, and a deep understanding of the technical aspects of photography.
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="portfolio-info">
+                        <h3>Picture information</h3>
+                        <ul>
+                            <li><strong>Category</strong> <span style="opacity: 0.5;">Nature Photography</span></li>
+                            <li><strong>Client</strong> <span style="opacity: 0.5;">ASU Company</span></li>
+                            <li><strong>Project date</strong> <span style="opacity: 0.5;">01 March, 2022</span></li>
+                            <li><strong>Details URL</strong> <a href="#">www.example.com</a></li>
+
+                            <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </section><!-- End Gallery Single Section -->
+
+    </main><!-- End #main -->
+    <!--footer-->
+    <partial name="_footer" />
+
+    <div id="preloader">
+        <div class="line"></div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
+
+
+    <script>
+        function addToCart(itemId) {
+            $.ajax({
+                url: '/cart/add',
+                method: 'POST',
+                data: { itemId: itemId },
+                success: function (response) {
+                
+                    window.location.reload();
+                    window.location.href = '@Url.Action("ShippingInfo", "shippinginfo")?imageId=' + itemId;
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

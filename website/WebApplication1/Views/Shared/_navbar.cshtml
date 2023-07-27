@@ -1,0 +1,115 @@
+﻿
+<nav class="navbar navbar-expand-lg navbar-dark bg-green fixed-top">
+    <div class="container-fluid">
+        <img src="/images/logo.jpg">
+        <div class="web-name">
+            Artistia
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="/home/home"><b>HOME</b></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>CATEGORIES</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                       @* <a class="dropdown-item" href="/gallery/gallery" style="border-bottom: 1px solid lightgrey;">BEACH</a>*@
+                        <a class="dropdown-item" href="/gallery/gallery?category=Beach" style="border-bottom: 1px solid lightgrey;">BEACH</a>
+                        <a class="dropdown-item" href="/gallery/gallery?category=Animal" style="border-bottom: 1px solid lightgrey;">ANIMAL</a>
+                        <a class="dropdown-item" href="/gallery/gallery?category=Painting" style="border-bottom: 1px solid lightgrey;">PAINTING</a>
+                        <a class="dropdown-item" href="/gallery/gallery?category=Nature" style="border-bottom: 1px solid lightgrey;">NATURE</a>
+                        <a class="dropdown-item" href="/gallery/gallery?category=Mix">ALL</a>
+
+                        <!-- Add more category dropdown items here -->
+                    </div>
+                </li>
+
+              @*  @{
+                    if (TempData["admin"] != null)
+                    {
+                        TempData.Keep("admin");
+                        <li class="nav-item">
+                            <a class="nav-link" id="login" href="/Admin/admin"><b>Add/del Image</b></a>
+                        </li>
+                    }
+                    if (TempData["success"] == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" id="login" href="/Login/Login"><b>SIGN IN</b></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <form action="/Login/LogOut" method="post">
+                        <li class="nav-item">
+                            <button type="submit" class="nav-link" id="logout" style="border: none; background: none; cursor: pointer;"><b>LOG OUT</b></button>
+                        </li>
+                        </form>
+                        TempData.Remove("success");
+                        TempData.Remove("admin");
+                    }
+                }*@
+                @{
+                    var adminCookie = Context.Request.Cookies["admin"];
+                    var successCookie = Context.Request.Cookies["success"];
+
+                    if (adminCookie != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" id="login" href="/Admin/admin"><b>CRUD</b></a>
+                        </li>
+                    }
+                    if (successCookie == null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" id="login" href="/Login/Login"><b>SIGN IN</b></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <form action="/Login/LogOut" method="post">
+                        <li class="nav-item">
+                            <button type="submit" class="nav-link" id="logout" style="border: none; background: none; cursor: pointer;"><b>LOG OUT</b></button>
+                        </li>
+                        </form>
+                        
+                    }
+                }
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-search"></i>
+                        <div id="openNewModalButton">
+                            <img src="/images/search.png">
+                        </div>
+                        <form action="/gallery/getList" method="post">
+                        <div id="newModal" class="new-modal">
+                            <div class="new-modal-content">
+                                <span class="new-close">&times;</span>
+                                <input type="text" name="name" id="new-searchInput" placeholder="Search...">
+                                <button id="new-searchButton">Search</button>
+                            </div>
+                        </div>
+                        </form>
+                    </a>
+                </li>
+                @{if (successCookie != null)
+                {
+                <li class="nav-item ">
+                    <a class="nav-link" id="add-to-cart-btn" href="#">
+                        <img src="/images/cart.png" alt="" style="height: 20px;">
+                    </a>
+                    <div><vc:cart-user></vc:cart-user></div>
+                </li>
+                }}
+            </ul>
+        </div>
+    </div>
+</nav>
+

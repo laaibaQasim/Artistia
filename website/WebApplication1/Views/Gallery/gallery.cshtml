@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+@using WebApplication1.Models;
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicons -->
+    <link href="/images/logo.jpg" rel="icon">
+
+    <title>Artistia-Gallery</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+
+   
+    <!-- Template Main CSS File -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/cart.css" rel="stylesheet">
+    <link href="/css/home.css" rel="stylesheet">
+</head>
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+   
+    <!-- NavBar -->
+    <partial name="_navbar" />
+    <!-- HTML code -->
+
+    <div class="filter-icon" onclick="openFiltersModal()">
+        <i class="bi bi-filter"></i>
+    </div>
+
+    <div id="filters-modal" class="modal-filter">
+        <div class="modal-content-filter">
+            <span class="close" onclick="closeFiltersModal()">&times;</span>
+            <h2 class="Filter">FILTER IMAGES</h2>
+            <div class="filters-list">
+                <!-- Add your filters here -->
+                <form id="imageFilterForm" action="/gallery/filter" method="post">
+                 
+                    <br>
+                    <label for="priceFilter"><b>PRICE</b></label>
+                    <div id="priceFilterButtons">
+                        <label>
+                            <input type="radio" name="priceFilter" value="lowToHigh">Low to High
+                        </label>
+                        <label>
+                            <input type="radio" name="priceFilter" value="highToLow">High to Low
+                        </label>
+                    </div>
+                    <br><br>
+                    <label for="orientationFilter"><b>ORIENTATION</b></label>
+                    <div id="orientationFilter">
+                        <div class="range-slider">
+                            <input type="range" id="heightFilter" name="heightFilter" min="0" max="1024" value="0">
+                            <span class="values">Height: <span id="heightValue">0</span></span>
+                            <input type="range" id="widthFilter" name="widthFilter" min="0" max="1024" value="0">
+                            <span class="values">Width: <span id="widthValue">0</span></span>
+                        </div>
+                    </div>
+                    <br><br>
+                    <label for="categoryFilter"><b>CATEGORIES</b></label>
+                    <div id="categoryFilter">
+                        <button type="button" name="categoryFilter" value="nature" class="category-button">Nature</button>
+                        <button type="button" name="categoryFilter" value="travel" class="category-button">Travel</button>
+                        <button type="button" name="categoryFilter" value="food" class="category-button">Food</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Sky</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Paintings</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Ocean</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Mountains</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Scenery</button>
+                        <button type="button" name="categoryFilter" value="sky" class="category-button">Fountains</button>
+                        <!-- Add more buttons for categories as needed -->
+                    </div>
+
+                    <div class="search-container">
+                        <button type="submit">Search</button>
+                    </div>
+                </form>
+
+ 
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="page-header d-flex align-items-center" style="padding-top: 100px;">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="F" style="color: black;">
+                        <h2 class="Nature">Gallery</h2>
+                        <p>Odio et unde deleniti. Deserunt numquam exercitationem. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @using Microsoft.AspNetCore.Http
+
+    @{
+        dynamic list;
+        if (Model==null)
+        {
+            var category = Context.Request.Query["category"].ToString();
+            list = Admin.SearchByCategory(category);
+        }
+        else
+        {
+            list = Model;
+        }
+
+    }
+
+    <section id="gallery" class="gallery">
+
+        <div class="row gy-4 justify-content-center">
+            @if (list != null)
+            {
+                @foreach (var image in list)
+                {
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="gallery-item h-100 position-relative">
+                            <img src="@image.ImgLink" class="img-fluid" alt="">
+                            <div class="gallery-links d-flex align-items-center justify-content-center position-absolute w-100 h-100">
+                                <div class="text-center w-100">
+                                    <span class="price-label bg-dark text-white px-2 py-1">$50</span>
+                                    <span class="discount-label bg-danger text-white px-2 py-1">20% OFF SALE</span>
+                                </div>
+                                <a href="@image.ImgLink" title="Gallery 1" class="glightbox preview-link" data-glightbox="gallery-item">
+                                    <i class="bi bi-arrows-angle-expand"></i>
+                                </a>
+                                @*<a href="/gallerysingle/gallerysingle" class="add-to-cart-link" onclick="addToCart('@User.Identity.Name', '@(image.Id)')"><i class="bi bi-cart-plus"></i></a>*@
+                                <a href="/gallerysingle/gallerysingle?id=@image.Id" class="add-to-cart-link" onclick="addToCart('@User.Identity.Name', '@image.Id')"><i class="bi bi-cart-plus"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+            
+
+
+    </section>
+
+
+
+   
+    </main><!-- End #main -->
+
+
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <!--footer-->
+    <partial name="_footer" />
+   @* <a href="#" class="scroll-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>*@
+
+
+
+    <!-- Vendor JS Files -->
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@1.0.8/dist/js/glightbox.min.js"></script>
+
+
+   @* <div id="preloader">
+        <div class="line"></div>
+    </div>*@
+</body>
+
+</html>

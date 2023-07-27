@@ -1,0 +1,145 @@
+﻿@*@model List<Cart>
+
+@{
+    if (Model != null)
+    {
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="cart-wrapper">
+                    <div class="cart-header">
+                        <h1>Your Cart</h1>
+                    </div>
+                    <br>
+                    <div class="cart-items">
+                  
+                        @foreach (var cartItem in Model)
+                        {
+                            <div class="cart-item">
+                                <img src="@cartItem.Image.ImgLink" alt="Product image">
+                                <div class="cart-item-details">
+                                    <h2>@cartItem.Image.Name</h2>
+                                    <p>Price: $@cartItem.Price</p>
+                                    <p>Quantity: @cartItem.Quantity</p>
+                                    <button>Remove</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="cart-total">
+                        <h2>Total: $@(Model.Sum(c => c.Price))</h2>
+                        <form action="shippingInfo.html">
+                            <input type="submit" value="Checkout">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+*@
+@model List<Cart>
+
+
+@{
+    var email = Context.Request.Cookies["LoggedInUserEmail"];
+    if (email != null && Model != null)
+    {
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="cart-wrapper">
+                    <div class="cart-header">
+                        <h1>Your Cart</h1>
+                    </div>
+                    <br>
+                    <div class="cart-items">
+
+                        @foreach (var cartItem in Model)
+                        {
+                            <div class="cart-item">
+                                <img src="@cartItem.Image.ImgLink" alt="Product image">
+                                <div class="cart-item-details">
+                                    <h2>@cartItem.Image.Name</h2>
+                                    <p>Price: $@cartItem.Price</p>
+                                    <p>Quantity: @cartItem.Quantity</p>
+                                    <button class="remove-button" data-id="@cartItem.ImageId">Remove</button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="cart-total">
+                        <h2>Total: $<span id="cart-total">@Model.Sum(c => c.Price)</span></h2>
+                        <form action="@Url.Action("shippingInfo", "ShippingInfo")" method="get">
+                            <input type="submit" value="Checkout" @((Model.Count == 0) ? "disabled" : "")>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div id="cart-modal" class="modal" style="display: none;"></div>
+    }
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.remove-button').click(function () {
+            var itemId = $(this).data('id');
+
+            // Remove the item from the cart interface
+            $(this).closest('.cart-item').remove();
+
+            // Send an AJAX request to remove the item from the server-side (database)
+            $.ajax({
+                url: '@Url.Action("RemoveCartItem", "admin")', // Updated URL
+                type: 'POST',
+                data: { id: itemId },
+                success: function (response) {
+                    // If the removal was successful, update the cart total
+                    if (response === 'success') {
+                        var updatedTotal = $('#cart-total').text();
+                        $('#cart-total').text(updatedTotal);
+                        refreshCartTotal();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log(error); // Handle any errors
+                }
+            });
+        });
+    });
+
+    function refreshCartTotal() {
+        // Send an AJAX request to get the updated cart total from the server
+        $.ajax({
+            url: '@Url.Action("GetCartTotal", "admin")', // Updated URL
+            type: 'GET',
+            success: function (response) {
+                // Update the cart total element in the modal
+                $('#cart-total').text(response.total); // Access the 'total' property
+            },
+            error: function (xhr, status, error) {
+                console.log(error); // Handle any errors
+            }
+        });
+    }
+    function removeItemFromDatabase(itemId) {
+        // Send an AJAX request to the server-side function that removes the item from the database
+        $.ajax({
+            url: '@Url.Action("RemoveItemFromDatabase", "adminController")', // Replace "AdminController" with the actual name of your admin controller
+            type: 'POST',
+            data: { id: itemId },
+            success: function (response) {
+
+                console.log(response); // Handle the response from the server
+            },
+            error: function (xhr, status, error) {
+                console.log(error); // Handle any errors
+            }
+        });
+    }
+</script>

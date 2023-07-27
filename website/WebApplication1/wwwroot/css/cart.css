@@ -1,0 +1,391 @@
+/* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 30%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #010e1a; /* Black with opacity */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Add a shadow effect */
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(233%);
+}
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+.close {
+    color: #aaaaaa;
+    margin-left: 380px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.cart-header {
+    background-color: #797979;
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    .cart-header h1 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+/* Cart item styles */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+    .cart-item img {
+        width: 150px;
+        margin-right: 20px;
+    }
+
+.cart-item-details h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.cart-item-details p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.cart-item-details button {
+    background-color: #252525;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .cart-item-details button:hover {
+        background-color: #000;
+    }
+
+/* Cart total styles */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .cart-total button {
+        background-color: #252525;
+        color: #fff;
+        font-size: 1rem;
+        padding: 5px 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+button,
+input[type="submit"] {
+    background-color: #252525;
+    color: #fff;
+    font-size: 1rem;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    button:hover,
+    input[type="submit"]:hover {
+        background-color: #000;
+    }
+
+.cart-total h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+
+.new-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: top 0.3s ease;
+}
+
+.new-modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    margin-top: 60px; /* Adjust this value to leave space for the modal's header */
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#new-searchInput {
+    flex: 0.75;
+    margin-left: 55px;
+    margin-right: 35px !important;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+#new-searchButton {
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    background-color: #010e1a;
+    cursor: pointer;
+}
+
+.new-close {
+    color: #aaa;
+    float: right !important;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .new-close:hover,
+    .new-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.new-modal.open {
+    top: 10;
+}
+
+#new-searchButton:hover {
+    background-color: #ccc;
+}
+
+
+/* CSS styles for the modal */
+/* Increase the size of the form and its contents */
+#filters-modal form {
+    width: 608px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+/* Increase button size and make them round */
+#filters-modal button {
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#priceFilterButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+    #priceFilterButtons label {
+        margin-right: 50px; 
+        margin-left:50px;/* Add extra margin between the radio buttons */
+    }
+
+/* Display orientation options in the same line */
+#orientationFilter input,
+#orientationFilter label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Styling for selected and deselected category buttons */
+#categoryFilter .category-button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+    #categoryFilter .category-button.selected {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+    #categoryFilter .category-button:hover {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+.range-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+    .range-slider input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        border-radius: 5px;
+        background-color: #ddd;
+        outline: none;
+        margin: 0;
+    }
+
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+        .range-slider input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+#filters-modal button[type="submit"] {
+    margin-top: 20px;
+    margin-left: 500px;
+    background-color: #010e1a;
+    color: #fff;
+}
+
+    #filters-modal button[type="submit"]:hover {
+        background-color: #646464;
+        color: #ffffff;
+    }
+
+#filters-modal label,
+#filters-modal .values {
+    font-size: 20px;
+}
+
+/* Center the "Filter images" heading */
+#filters-modal h2 {
+    text-align: center;
+}
+
+/* Change color of radio options for high to low and low to high */
+#filters-modal input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-clip: content-box;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+}
+
+    #filters-modal input[type="radio"]:checked {
+        background-color: #010e1a;
+    }
+
+        #filters-modal input[type="radio"]:checked:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+/*.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    line-height: 60px;
+    cursor: pointer;
+}*/
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+    /* Style for the label */
+    .chat-button span {
+        visibility: hidden;
+        width: 150px;
+        background-color: #4d4d4d;
+        color: #fff;
+        /* text-align: center; */
+        border-radius: 6px;
+        padding: 2px;
+        position: absolute;
+        z-index: 2;
+        bottom: 80%;
+        right: -0px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 19px;
+        height: 50px;
+    }
+
+    /* Show the label when hovering over the button */
+    .chat-button:hover span {
+        visibility: visible;
+        opacity: 1;
+    }

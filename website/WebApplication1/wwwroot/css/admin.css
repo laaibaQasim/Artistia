@@ -1,0 +1,292 @@
+﻿/*
+ 
+form {
+    width: 100%;  
+    padding: 20px; 
+   
+}
+
+
+button {
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-top:5px;
+}
+
+
+#priceFilterButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#orientationFilter input,
+#orientationFilter label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.category-button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+    .category-button.selected {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+    .category-button:hover {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+.range-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+    .range-slider input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        border-radius: 5px;
+        background-color: #ddd;
+        outline: none;
+        margin: 0;
+    }
+
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+        .range-slider input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+button[type="submit"] {
+    margin-top: 20px;
+    margin-left: 120px;
+    background-color: #010e1a;
+    color: #fff;
+}
+
+    button[type="submit"]:hover {
+        background-color: #646464;
+        color: #ffffff;
+    }
+
+label,
+.values {
+    font-size: 20px;
+}
+
+
+h2 {
+    text-align: center;
+}
+
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-clip: content-box;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+}
+
+    input[type="radio"]:checked {
+        background-color: #010e1a;
+    }
+
+        input[type="radio"]:checked:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+.modal-content {
+    width: 1000px;  
+    margin: 10 auto;  
+}
+.containerLogin {
+    max-width: 800px; 
+    width: 100%;  
+    margin: 100px auto;  
+    padding: 20px;  
+}
+
+*/
+/* Increase the size of the form and its contents */
+form {
+    width: 100%; /* Make the form fill the container width */
+    padding: 20px; /* Add padding to the form */
+    /* Add any other necessary styling */
+}
+
+/* Increase button size and make them round */
+button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Display low to high and high to low buttons in the same line */
+#priceFilterButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Display orientation options in the same line */
+#orientationFilter input,
+#orientationFilter label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Styling for selected and deselected category buttons */
+.category-button {
+    padding: 12px 24px;
+    border-radius: 10px;
+    margin-right: 10px;
+    background-color: #ddd;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+    .category-button.selected {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+    .category-button:hover {
+        background-color: #010e1a;
+        color: #fff;
+    }
+
+.range-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+    .range-slider input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 8px;
+        border-radius: 5px;
+        background-color: #ddd;
+        outline: none;
+        margin: 0;
+    }
+
+        .range-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+        .range-slider input[type="range"]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #010e1a;
+            cursor: pointer;
+        }
+
+button[type="submit"] {
+    margin-top: 20px;
+    margin-left: 340px;
+    background-color: #010e1a;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+    button[type="submit"]:hover {
+        background-color: #646464;
+        color: #ffffff;
+    }
+
+label,
+.values {
+    font-size: 20px;
+}
+
+/* Center the "Filter images" heading */
+h3 {
+    text-align: center;
+}
+
+/* Change color of radio options for high to low and low to high */
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-clip: content-box;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+}
+
+    input[type="radio"]:checked {
+        background-color: #010e1a;
+    }
+
+        input[type="radio"]:checked:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+
+.modal-content {
+    width: 1000px; /* Adjust the width as needed */
+    margin: 10 auto; /* Center the modal horizontally */
+}
+
+.containerLogin {
+    max-width: 800px; 
+    width: 100%; 
+    margin: 100px auto; 
+    padding: 20px;
+}
